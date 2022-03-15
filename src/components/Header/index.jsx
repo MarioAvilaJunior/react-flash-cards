@@ -1,8 +1,8 @@
-export default function Header({ children, size }) {
-  let fontSize = 'text-xl';
+const Header = ({ children, size }) => {
+  let fontSize = "text-xl";
 
-  if (size === 'large') {
-    fontSize = 'text-2xl';
+  if (size === "large") {
+    fontSize = "text-2xl";
   }
 
   return (
@@ -12,4 +12,6 @@ export default function Header({ children, size }) {
       </div>
     </header>
   );
-}
+};
+
+export { Header };
