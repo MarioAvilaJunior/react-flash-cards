@@ -11,7 +11,7 @@ const FlashCard = ({
   };
   return (
     <div
-      className={`shadow-lg m-2 p-4 w-64 h-32 cursor-pointer
+      className={`shadow-lg m-2 p-4 w-80 h-48 cursor-pointer
                     flex flex-row items-center justify-center
                     font-semibold text-xl`}
       style={{ fontFamily: "'JetBrains Mono', monospace" }}
