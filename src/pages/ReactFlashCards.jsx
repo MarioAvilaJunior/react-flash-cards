@@ -11,7 +11,7 @@ import { allFlashCards } from "../data/allFlashCards";
 import { helperShuffleArray } from "../helpers/arrayHelpers";
 const ReactFlashCards = () => {
   const [shuffledFlashCards, setShuffledFlashCards] = useState(allFlashCards);
-  const [showDescription, setShowDescription] = useState(true);
+  const [showTitle, setShowTitle] = useState(true);
 
   const shuffleCardsHandler = () => {
     //const shuffledArray = helperShuffleArray(shuffledFlashCards);
@@ -19,11 +19,11 @@ const ReactFlashCards = () => {
   };
 
   const showTitleHandler = () => {
-    setShowDescription(true);
+    setShowTitle(true);
   };
 
   const showDescriptionHandler = () => {
-    setShowDescription(false);
+    setShowTitle(false);
   };
 
   return (
@@ -32,19 +32,29 @@ const ReactFlashCards = () => {
       <Main>
         <div className="text-center mb-4">
           <ShuffleButton shuffleArray={shuffleCardsHandler} />
-          <RadioButton id="showNameId" onButtonClick={showTitleHandler}>
+          <RadioButton
+            id="showNameId"
+            onButtonClick={showTitleHandler}
+            isChecked={showTitle ? "checked" : ""}
+          >
             Show Title
           </RadioButton>
           <RadioButton
             id="showDescriptionId"
             onButtonClick={showDescriptionHandler}
+            isChecked={showTitle ? "" : "checked"}
           >
             Show Description
           </RadioButton>
         </div>
         <FlashCards>
           {shuffledFlashCards.map(({ id, title, description }) => (
-            <FlashCard key={id} title={title} description={description} />
+            <FlashCard
+              key={id}
+              title={title}
+              description={description}
+              showFlashCardTitle={showTitle}
+            />
           ))}
         </FlashCards>
       </Main>
