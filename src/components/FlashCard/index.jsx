@@ -1,21 +1,17 @@
-import { useEffect, useState } from "react";
+import React from "react";
 
 const FlashCard = ({
+  id,
   title = "Default title",
   description = "Default description",
-  showFlashCardTitle = true,
+  showTitle,
+  onFlashCardClick,
 }) => {
-  const [showTitle, setShowTitle] = useState(showFlashCardTitle);
-
-  useEffect(() => {
-    setShowTitle(showFlashCardTitle);
-  }, [showFlashCardTitle]);
-
   const titleChangeHandler = () => {
-    setShowTitle((currentValue) => !currentValue);
+    onFlashCardClick(id);
   };
 
-  const fontSize = showFlashCardTitle ? "text-xl" : "text-sm";
+  const fontSize = showTitle ? "text-xl" : "text-sm";
   return (
     <div
       className={`shadow-lg m-2 p-4 w-80 h-48 cursor-pointer
